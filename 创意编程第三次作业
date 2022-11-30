@@ -1,0 +1,33 @@
+int Width = 500;
+int Height = 500;
+float lineSize = 0;
+float colSize = 0;
+
+color[] colors ={#ffb5a642,#ff8e2323,#ff856363,#ff9932cd,#ff5f9f9f};
+
+void m(){
+  for(int i = 0; i < Height; i += lineSize + 5){
+    lineSize = random(5,Width/2);
+    for (int c = 0; c< Width; c += colSize + 5){
+      colSize = random(5,Height/2);
+      
+      color rectC = colors[ int (random(colors.length))];
+      fill(rectC);
+      rect(i,c,lineSize,colSize);
+      stroke(0);
+      strokeWeight(5);   
+    }
+  }
+}
+
+void setup(){
+  size(500,500);
+  background(0);
+  m();
+}
+
+void draw(){
+  if(mousePressed){
+    m();
+  }
+}
